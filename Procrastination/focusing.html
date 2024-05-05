@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Interest</title>
+    <style>
+        /* Improved CSS for the page */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #f5f5f5, #e0e0e0); /* Gradient background */
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ee6b19;
+            margin-bottom: 20px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc; /* Add a border for better visual separation */
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ee6b19;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Smooth hover effect */
+            margin-bottom: 20px; /* Added margin to separate from the motivational content */
+        }
+
+        button:hover {
+            background-color: #d45d16; /* Darker color on hover */
+        }
+
+        #motivationalContent {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            display: none; /* Hide initially */
+            margin-top: 20px;
+        }
+
+        #motivationalImage {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 20px;
+            border-radius: 10px; /* Rounded corners for the image */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        }
+    </style>
+</head>
+<body>
+    <h1>Focusing On</h1>
+    <form id="interestForm">
+        <select id="interestSelect">
+            <option value="Passion">Passion</option>
+            <option value="Independence">Independence</option>
+            <option value="Financial_Stability">Financial Stability</option>
+            <!-- Add more options as needed -->
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Container for motivational content -->
+    <div id="motivationalContent">
+        <h2>Motivational Content</h2>
+        <p id="motivationalText"></p>
+        <img id="motivationalImage" src="" alt="Related Image">
+    </div>
+
+    <!-- Button for navigating to the next task breakdown page -->
+    <button id="nextPageButton">Continue</button>
+
+    <script>
+        // Define motivational content and related images for each area of interest
+        const motivationalContent = {
+            Passion: {
+                text: "Nurture your passions; they're the keys to fulfillment. Invest in what lights your soul on fire.",
+                image: "passion.jpg"
+            },
+            Independence: {
+                text: "Embrace your autonomy; it's the cornerstone of self-discovery. Forge your path with confidence.",
+                image: "independence.png"
+            },
+            Financial_Stability: {
+                text: "Build a foundation of financial security; it provides the freedom to pursue your dreams. Invest in your future with purpose.",
+                image: "fin.jpg"
+            }
+            // Add more motivational content and images for other areas of interest here
+        };
+
+        // Function to handle form submission
+        document.getElementById('interestForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get the selected area of interest
+            const interest = document.getElementById('interestSelect').value;
+
+            // Display the corresponding motivational content and image
+            const motivationalText = document.getElementById('motivationalText');
+            motivationalText.textContent = motivationalContent[interest].text;
+
+            const motivationalImage = document.getElementById('motivationalImage');
+            motivationalImage.src = motivationalContent[interest].image;
+
+            // Show the motivational content container
+            document.getElementById('motivationalContent').style.display = 'block';
+        });
+
+        // Function to handle button click for navigating to the next task breakdown page
+        document.getElementById('nextPageButton').addEventListener('click', function() {
+            // Redirect to the next task breakdown page
+            window.location.href = 'breakdown.html'; // Make sure the URL matches the correct filename
+        });
+    </script>
+</body>
+</html>
+
+

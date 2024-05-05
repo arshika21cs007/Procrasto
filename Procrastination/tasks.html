@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tickled Tasks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* Additional styles for input fields */
+        input[type="number"],
+        input[type="date"] {
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Center the form */
+        .container-1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Add background color */
+        body {
+            background-color: #f39b48; /* You can change this to your preferred color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container-1 animate__animated animate__rollIn" style="background-color: white; padding: 20px; border-radius: 10px;">
+        <h2>Tickled Tasks</h2>
+        <p id="first">Get it done today</p>
+        <form id="taskForm">
+            <input type="text" id="taskName" placeholder="Enter task name" maxlength="30">
+            <input type="number" id="duration" placeholder="Duration (in minutes)">
+            <input type="date" id="deadline" placeholder="Deadline">
+            <button type="button" id="addTaskBtn" style="border-radius: 5px solid black; background-color: rgb(80, 52, 243);">Add Task</button>
+        </form>
+        <p class="second">Your list:</p>
+        <ul id="list"></ul>
+    </div>
+    <script>
+        // Function to parse URL parameters
+        function getParams() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('interest');
+        }
+
+        // Function to set the previously selected interest as the heading
+        function setInterestHeading() {
+            const interest = getParams();
+            if (interest) {
+                document.getElementById('first').innerText = `Your interest: ${interest}`;
+            }
+        }
+
+        // Call the function to set the interest heading
+        setInterestHeading();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

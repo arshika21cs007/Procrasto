@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivated</title>
+    <!-- Add animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Example CSS for motivational content */
+        body {
+            /* Set the background image */
+            background-image: url('i2.jpg');
+            /* Center and cover the background */
+            background-size: cover;
+            background-position: center;
+            /* Add a fallback background color */
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .motivation-container {
+            text-align: center;
+            margin-top: 50px;
+            color: #fff; /* Set text color to white for better contrast */
+        }
+
+        h1 {
+            color: #ee6b19; /* Set heading color to gold */
+            font-size: 36px; /* Increase font size */
+            text-transform: uppercase; /* Convert text to uppercase */
+            margin-bottom: 20px; /* Add some bottom margin */
+        }
+
+        p {
+            color: #2409f3; /* Set paragraph color to a lighter shade of white */
+            font-size: 18px; /* Increase font size */
+            margin-bottom: 30px; /* Add more bottom margin */
+            line-height: 1.6; /* Increase line height for better readability */
+        }
+
+        .motivation-animation {
+            width: 300px;
+            margin-bottom: 20px;
+            /* Add animation styles here */
+        }
+
+        .motivation-popup {
+            position: fixed;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Move 20% to the right of the left margin */
+            transform: translate(-50%, -50%); /* Center the popup vertically */
+            background-color: rgba(249, 85, 85, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            z-index: 9999; /* Ensure popup appears on top of other elements */
+            display: none; /* Hide initially */
+        }
+    </style>
+</head>
+<body>
+    <div class="motivation-container">
+        <h1>You're on Fire!🔥</h1>
+        <p>Keep up the great work!</p>
+       
+        <!-- Example of a motivational animation -->
+        <div class="motivation-animation" id="motivationAnimation">
+            <!-- Animated elements will be added here -->
+        </div>
+    </div>
+    <!-- Example of a motivational popup -->
+    <div class="motivation-popup animate__animated animate__zoomIn" id="motivationPopup">
+        <h2>Stay pumped up!</h2>
+        <p>You're crushing it!</p>
+    </div>
+    <script>
+        // Function to show motivational popup
+        function showMotivationPopup() {
+            const popup = document.getElementById('motivationPopup');
+            popup.style.display = 'block';
+            // Hide popup after 3 seconds (adjust as needed)
+            setTimeout(() => {
+                popup.style.display = 'none';
+                // Redirect to the next page after the popup vanishes
+                window.location.href = 'focusing.html';
+            }, 3000);
+        }
+
+        // Call the showMotivationPopup function to display the popup
+        showMotivationPopup();
+    </script>
+</body>
+</html>
+
+

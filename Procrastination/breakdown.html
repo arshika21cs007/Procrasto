@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Breakdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ee6b19;
+            margin-bottom: 20px;
+        }
+
+        .task {
+            margin-bottom: 20px;
+        }
+
+        .task label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .task input[type="text"],
+        .task input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 70%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ee6b19;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #d45d16;
+        }
+
+        #taskBreakdown {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        #taskBreakdown p {
+            margin-bottom: 10px;
+        }
+
+        /* Button Styles */
+        .feedback-button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #4CAF50; /* Green */
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+
+        .feedback-button:hover {
+          background-color: #a06845; /* Darker Green on Hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Breakdown</h1>
+
+    <!-- Tasks with intervals or break times -->
+    <form id="taskForm">
+        <div class="task">
+            <label for="task1">Task 1:</label>
+            <input type="text" id="task1" name="task1" placeholder="Enter task">
+            <input type="number" id="interval1" name="interval1" placeholder="Duration (minutes)">
+            <label><input type="radio" name="task1Status" value="completed" onclick="cheerUser('completed')"> Completed</label>
+            <label><input type="radio" name="task1Status" value="incomplete" onclick="cheerUser('incomplete')"> Incomplete</label>
+        </div>
+        <div class="task">
+            <label for="task2">Task 2:</label>
+            <input type="text" id="task2" name="task2" placeholder="Enter task">
+            <input type="number" id="interval2" name="interval2" placeholder="Duration (minutes)">
+            <label><input type="radio" name="task2Status" value="completed" onclick="cheerUser('completed')"> Completed</label>
+            <label><input type="radio" name="task2Status" value="incomplete" onclick="cheerUser('incomplete')"> Incomplete</label>
+        </div>
+        <!-- Add more task input fields as needed -->
+        
+        <button id="startBreakdownBtn" type="button">Start Breakdown</button>
+    </form>
+
+    <div id="taskBreakdown"></div>
+    <button class="feedback-button" onclick="navigateToFeedback()">Give Feedback</button>
+
+
+    <script>
+        document.getElementById('startBreakdownBtn').addEventListener('click', function() {
+            // Get tasks and intervals
+            const tasks = [];
+            const durations = [];
+            for (let i = 1; i <= 2; i++) { // Assuming there are 2 tasks for now
+                const taskInput = document.getElementById(`task${i}`);
+                const durationInput = document.getElementById(`interval${i}`);
+                const task = taskInput ? taskInput.value.trim() : '';
+                const duration = durationInput ? parseInt(durationInput.value) : NaN;
+                if (task !== '' && !isNaN(duration) && duration > 0) {
+                    tasks.push(task);
+                    durations.push(duration);
+                }
+            }
+
+            // Generate and display the breakdown
+            let currentTime = 0;
+            let breakdownHtml = '<h2>Task Breakdown</h2>';
+            for (let i = 0; i < tasks.length; i++) {
+                const task = tasks[i];
+                const duration = durations[i];
+                const breakDuration = Math.floor(duration / 3); // Break duration (assuming 1/3 of the total time)
+                breakdownHtml += `<p>${task}:</p>`;
+                breakdownHtml += `<p>${currentTime} to ${currentTime + breakDuration} mins - Conquer Goals 💪</p>`;
+                breakdownHtml += `<p>${currentTime + breakDuration} to ${currentTime + 2 * breakDuration} mins - Chill 😎</p>`;
+                breakdownHtml += `<p>${currentTime + 2 * breakDuration} to ${currentTime + duration} mins - Conquer Goals 💪</p>`;
+                currentTime += duration;
+            }
+            document.getElementById('taskBreakdown').innerHTML = breakdownHtml;
+        });
+
+        function cheerUser(taskStatus) {
+            if (taskStatus === 'completed') {
+                alert('Great job! Task completed! 🎉');
+            } else if (taskStatus === 'incomplete') {
+                alert('You got this! Keep pushing forward! 💪');
+            }
+        }
+
+        function navigateToFeedback() {
+          // Redirect the user to the feedback page
+          window.location.href = "feedback.html";
+        }
+    </script>
+</body>
+</html>
+

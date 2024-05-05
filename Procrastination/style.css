@@ -1,0 +1,243 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* Gradient Background */
+    background: linear-gradient(to right, #ff5f6d, #ffc371);
+    /* Fallback Solid Color */
+    background-color: #ff5f6d;
+  }
+  
+  form {
+    width: 200px;
+    padding: 50px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  }
+
+  /* Set full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  /* Center content vertically and horizontally */
+  .welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f39292;
+  }
+  
+  .welcome-container h1 {
+    color: #6c0ccd;
+    font-size: 2rem;
+  }
+  
+  .welcome-container p {
+    color: #333333;
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .welcome-container button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .welcome-container button:hover {
+    background-color: #218838;
+  }
+
+  .task-entry-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .task-entry-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .task-entry-container form {
+    width: 300px; /* Adjust as needed */
+  }
+  
+  .task-entry-container input,
+  .task-entry-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+  }
+  
+  .task-entry-container button {
+    background-color: #4CAF50; /* Adjust as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .task-entry-container button:hover {
+    background-color: #45a049;
+  }
+  
+body{
+    margin:0px;
+    background-color:rgb(238, 100, 95);
+    transition:all 1s linear;
+}
+
+.container-1{
+    
+    background: linear-gradient(81deg, rgb(226, 210, 184), rgb(166, 211, 254));
+    width:500px;
+    display:flex;
+    justify-content: center;
+    align-items:center; /*great */
+    flex-wrap: wrap;
+    flex-direction: column;
+    position:absolute;
+    left:100px;
+    top:220px;
+    padding: 0px;
+    border-radius:5px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    animation:rollIn;
+    animation-duration: 2s;
+}
+
+.delClass{
+        /* display: inline-block; */
+        width: 70px;
+        position: relative;
+        left: 60px;
+        bottom: 30px;
+}
+
+:root {
+    --animate-delay: 2s;
+  }
+
+input[type = "text"]{
+    cursor:pointer;
+    border:3px solid black;
+    border-radius:4px;
+}
+
+
+input[type = "text"]:active{
+    transform:scale(2);
+}
+
+
+ul li{
+    margin-left: 0px;
+    list-style: none;
+    text-align:start;
+    position: relative;
+    right: 70px;
+    padding-bottom: 10px;
+    font-size: medium;
+    font-weight:800;
+    color: black;
+}
+
+
+.delClass:hover{
+    box-shadow: 2px 3px 3px black;
+}
+
+
+/* media query */
+
+@media only screen and (max-width:375px){
+    .container-1{
+        width:200px;
+        height:400px;
+        }
+}
+
+
+@media only screen and (max-width:1440px){
+    .container-1{
+    left:400px;
+    }
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+}
+
+.feedback-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-container h1 {
+    color: #333333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    font-weight: bold;
+    color: #333333;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #ee6b19;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #ee6b19;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d45d16;
+}
+
