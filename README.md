@@ -1,6 +1,6 @@
 # Procrastination Website
 <p align="center">
-  <img src="procrasto.png" width="50%" alt="Centered Image">
+  <img src="Procrasto.png" width="50%" alt="Centered Image">
 </p>
 
 **Developed for a 24-Hour Hackathon Challenge**
